@@ -43,7 +43,7 @@ nav {
   background-color: #ffffff;
 }
 
-section {
+article {
   height: 70px;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
@@ -67,7 +67,7 @@ img {
   vertical-align: -15px;
 }
 
-section:hover {
+article:hover {
   cursor: pointer;
   background-color: lightblue;
 }
@@ -77,6 +77,6 @@ section:hover {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #ff0000;
+  /*background-color: #ff0000;*/
   border: 1px solid #000000;
 }
