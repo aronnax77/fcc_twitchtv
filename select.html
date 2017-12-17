@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Using select</title>
+</head>
+<body>
+
+  <h1>Using the select and option tag</h1>
+
+  <h2>Notes:</h2>
+  <p>If we obtain a reference to the select object; call this <b>ref</b>,
+  then we can use it as follows:</p><br>
+  <p>ref.value gives us the value of selected option.</p>
+  <p>ref.selectedIndex provides the index of the option selected (starting at 0).</p>
+  <p>ref.options provides us with an array of the available options and we can
+  then query each option with .value or .text. and .selected (true or false).</p>
+  <p><a href="http://www.dyn-web.com/tutorials/forms/select/selected.php" target="_blank">This</a>
+  article provides a reasonably clear guide.</p><br>
+
+  <h3>Visual trial</h3><br>
+
+  <select name="menu" id="menu">
+    <option value="1">All</option>
+    <option value="2">Red only</option>
+    <option value="3">Green only</option>
+  </select>
+
+  <section></section>
+
+  <script src="js/select.js"></script>
+
+</body>
+</html>
