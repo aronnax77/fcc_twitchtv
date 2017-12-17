@@ -13,6 +13,7 @@ function User(name, logo, status, sText) {
 }
 
 function renderStreamer(userName) {
+
   // create elements for streamer
   var article    = document.createElement('article');
   var imgLogo    = document.createElement('img');
@@ -77,57 +78,6 @@ function renderStreamer(userName) {
       };
   }
 
-
-
-  // function to make ajax call re users
-  /*function getUserInfo() {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, userUrl);
-    xhr.setRequestHeader("Client-ID", "heuz98elmbc2j7msdcnb17jjl877s2");
-    xhr.response = 'text';
-    xhr.send();
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            userData = JSON.parse(xhr.response);
-            user.name = userData.data[0].display_name;
-            user.logo = userData.data[0].profile_image_url;
-            renderUser();
-          } else {
-            alert('There was a problem with the request.');
-          }
-        }
-      };
-  }
-
-  // function to make ajax call re streams
-  function getStatusInfo() {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, statusUrl);
-    xhr.setRequestHeader("Client-ID", "heuz98elmbc2j7msdcnb17jjl877s2");
-    xhr.response = 'text';
-    xhr.send();
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            statusData = JSON.parse(xhr.response);
-            if(statusData.stream === null) {
-              user.status = "Offline";
-              user.sText  = "Site offline ......";
-            } else {
-              user.status = "Online";
-              user.sText = statusData.stream.channel.status;
-            }
-            renderStatus();
-          } else {
-            alert('There was a problem with the request.');
-          }
-        }
-      };
-  }*/
-
   function renderUser() {
     imgLogo.src = user.logo;
     nameSpan.textContent = user.name;
@@ -137,9 +87,11 @@ function renderStreamer(userName) {
     if(user.status === 'Offline') {
       statusSpan.textContent = 'Site offline ....';
       statusDiv.style.backgroundColor = "#ff0000";
+      article.className = 'offline';
     } else {
       statusSpan.textContent = user.sText;
       statusDiv.style.backgroundColor = "#00ff00";
+      article.className = 'online';
     }
   }
 
@@ -153,5 +105,50 @@ for(var i = 0; i < userNames.length; i++) {
   var name = userNames[i];
   renderStreamer(name);
 }
-//var name = userNames[3];
-//renderStreamer(name);
+
+var selection = document.querySelector('select');
+selection.options[0].selected = true;
+selection.addEventListener('change', showChange);
+
+
+
+function showChange() {
+  var onlineEls   = document.querySelectorAll('.online');
+  var offlineEls  = document.querySelectorAll('.offline');
+  if(selection.selectedIndex === 0) {
+    showOnline(true);
+    showOffline(true);
+  } else if(selection.selectedIndex === 1) {
+    showOnline(true);
+    showOffline(false);
+  } else {
+    showOnline(false);
+    showOffline(true);
+  }
+
+  function showOnline(choice) {
+    var i;
+    if(choice === false) {
+      for(i = 0; i < onlineEls.length; i++) {
+        onlineEls[i].style.display = 'none';
+      }
+    } else {
+      for(i = 0; i < onlineEls.length; i++) {
+        onlineEls[i].style.display = 'block';
+      }
+    }
+  }
+
+  function showOffline(choice) {
+    var i;
+    if(choice === false) {
+      for(i = 0; i < offlineEls.length; i++) {
+        offlineEls[i].style.display = 'none';
+      }
+    } else {
+      for(i = 0; i < offlineEls.length; i++) {
+        offlineEls[i].style.display = 'block';
+      }
+    }
+  }
+}

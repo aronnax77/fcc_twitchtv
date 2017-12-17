@@ -11,6 +11,7 @@ body {
 header {
   height: 50px;
   color: #ffffff;
+  font-family: 'Abril Fatface', cursive;
   background-color: #4b367c;
 }
 
@@ -27,6 +28,7 @@ header {
 
 h1 {
   display: inline;
+  font-size: 30px;
 }
 
 nav {
@@ -47,6 +49,7 @@ article {
   height: 70px;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
+  display: block;
   /*border: 2px solid blue;*/ /*SWITCH*/
 }
 
