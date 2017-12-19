@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #4c2f86;  /*#17141f;*/
+  background-color: #17141f;
 }
 
 header {
@@ -32,13 +32,47 @@ h1 {
 }
 
 nav {
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
-  /*border: 2px solid red;*/ /*SWITCH*/
+  position: relative;
+  width: 40vw;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
+  background-color: #17141f;
 }
 
-.streamers {
+.select-container {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  width: 80px;
+  float: right;
+
+  /*border: 2px solid yellow;*/  /*SWITCH*/
+}
+
+.select-container select {
+  border: none;
+  color: #ffffff;
+  background-color: #17141f;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+div.arrow-down {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  height: 0px;
+  width: 0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid white;
+}
+
+section.streamers {
   width: 40vw;
   min-height: 100vh;
   margin: 0 auto;

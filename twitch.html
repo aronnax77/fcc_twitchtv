@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="css/twitch.css">
-  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,22 +13,21 @@
   <header>
     <div class="enclosure">
       <h1>TWITCH STREAMERS</h1>
-      <nav>
-        <div class="select-style"></div>
-          <select>
-            <option value="all">All</option>
-            <option value="streaming">Streaming</option>
-            <option value="not_streaming">Not Streaming</option>
-          </select>
-        </div>
-
-      </nav>
     </div>
   </header>
 
-  <section class="streamers">
+    <nav>
+      <div class="select-container">
+        <select>
+          <option value="all">All</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+        <div class="arrow-down"></div>
+      </div>
+    </nav>
 
-  </section>
+  <section class="streamers"></section>
 
   <script src="js/twitch.js"></script>
 

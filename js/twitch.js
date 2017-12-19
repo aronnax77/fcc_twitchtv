@@ -97,7 +97,6 @@ function renderStreamer(userName) {
 
   getUserInfo(userUrl, 'user');
   getUserInfo(statusUrl, 'stream');
-  //getStatusInfo();
   section.appendChild(article);
 }
 
