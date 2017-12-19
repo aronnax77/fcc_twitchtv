@@ -1,10 +1,16 @@
+/* Design of a Widipedia Viewer, an exercise for freecodecamp.
 
+      Author: Richard Myatt
+      Date: 19 December 2017
+
+*/
 
 var section = document.querySelector('section');
 
 var userNames = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
                  "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "COSMOS"];
 
+// User object
 function User(name, logo, status, sText) {
   this.name = name;
   this.logo = logo;
@@ -12,6 +18,7 @@ function User(name, logo, status, sText) {
   this.sText  = sText;
 }
 
+// function to render streamers
 function renderStreamer(userName) {
 
   // create elements for streamer
@@ -31,19 +38,19 @@ function renderStreamer(userName) {
   article.addEventListener('click', openWindow);
   article.url = "https://www.twitch.tv/" + userName.toLowerCase();
 
-  function openWindow(evt) {
-    window.open(this.url, "_blank");
-  }
-
   // initialize variables
   var user = new User();
 
   var userUrl = "https://api.twitch.tv/helix/users?login=" + name;
   var statusUrl = "https://api.twitch.tv/kraken/streams/" + name;
   var method  = 'GET';
-  //var userData, statusData;
 
+  // function to open new window when user click on streamer
+  function openWindow(evt) {
+    window.open(this.url, "_blank");
+  }
 
+  // function to make appropriate call and get streamer information
   function getUserInfo(url, type) {
     var xhr = new XMLHttpRequest();
     xhr.open(method, url);
@@ -78,11 +85,13 @@ function renderStreamer(userName) {
       };
   }
 
+  // helper function to render part of streamer information
   function renderUser() {
     imgLogo.src = user.logo;
     nameSpan.textContent = user.name;
   }
 
+  // helper function to render part of streamer information
   function renderStatus() {
     if(user.status === 'Offline') {
       statusSpan.textContent = 'Site offline ....';
@@ -100,14 +109,7 @@ function renderStreamer(userName) {
   section.appendChild(article);
 }
 
-for(var i = 0; i < userNames.length; i++) {
-  var name = userNames[i];
-  renderStreamer(name);
-}
 
-var selection = document.querySelector('select');
-selection.options[0].selected = true;
-selection.addEventListener('change', showChange);
 
 
 
@@ -151,3 +153,14 @@ function showChange() {
     }
   }
 }
+
+
+// the main routines
+for(var i = 0; i < userNames.length; i++) {
+  var name = userNames[i];
+  renderStreamer(name);
+}
+
+var selection = document.querySelector('select');
+selection.options[0].selected = true;
+selection.addEventListener('change', showChange);

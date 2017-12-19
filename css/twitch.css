@@ -1,3 +1,30 @@
+/******************************************************************************
+TABLE OF CONTENTS
+
+AUTHOR            - Richard Myatt
+DATE              - 19 December 2017
+
+
+GENERAL STYLING                - overall styling, header and nav
+SECTION AND ARTICLE STYLING    - styling for dynamically generated content
+RESPONSIVE STYLING             - responsive layout styling
+
+
+COLOUR PALETTE
+
+lightgrey                      - background colour ariticle on hover
+#17141f                        - body and nav background very dark grey
+#4b367c                        - header background dark blue
+#ffffff                        - title and nav text and section background white
+#dddddd                        - article bottom border very light grey
+#000000                        - status indicator black
+
+
+******************************************************************************/
+
+/******************************************************************************
+  General styling begins
+******************************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +38,7 @@ body {
 header {
   height: 50px;
   color: #ffffff;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Lobster', cursive;
   background-color: #4b367c;
 }
 
@@ -23,12 +50,12 @@ header {
   padding-left: 10px;
   padding-right: 10px;
   margin: 0 auto;
-  /*border: 2px solid yellow;*/ /*SWITCH*/
 }
 
 h1 {
   display: inline;
   font-size: 30px;
+  letter-spacing: 2px;
 }
 
 nav {
@@ -48,8 +75,6 @@ nav {
   top: 20px;
   width: 80px;
   float: right;
-
-  /*border: 2px solid yellow;*/  /*SWITCH*/
 }
 
 .select-container select {
@@ -69,9 +94,15 @@ div.arrow-down {
   width: 0px;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	border-top: 5px solid white;
+	border-top: 5px solid #ffffff;
 }
+/* General styling ends */
 
+
+
+/******************************************************************************
+  Section and article styling begins
+******************************************************************************/
 section.streamers {
   width: 40vw;
   min-height: 100vh;
@@ -80,28 +111,29 @@ section.streamers {
 }
 
 article {
-  height: 70px;
+  position: relative;
+  font-size: 0.9em;
+  min-height: 70px;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
   display: block;
-  /*border: 2px solid blue;*/ /*SWITCH*/
 }
 
 img {
   float: left;
   width: 50px;
+  margin-right: 20px;
 }
 
 .site_name {
   font-weight: bold;
-  padding-left: 30px;
-  vertical-align: -15px;
+  vertical-align: -17px;
 }
 
 .site_status {
   font-style: italic;
-  padding-left: 30px;
-  vertical-align: -15px;
+  padding-left: 20px;
+  vertical-align: -17px;
 }
 
 article:hover {
@@ -110,10 +142,50 @@ article:hover {
 }
 
 .status {
-  float: right;
+  position: absolute;
+  top: 5px;
+  right: 10px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  /*background-color: #ff0000;*/
   border: 1px solid #000000;
 }
+/* Section and article styling ends */
+
+
+/******************************************************************************
+  Responsive styling begins
+******************************************************************************/
+@media only screen and (max-width:1600px) {
+  /* large screens intermediate */
+  .enclosure, nav, section.streamers {
+    width: 50vw;
+  }
+
+@media only screen and (max-width:1200px) {
+  /* For mobile phones: */
+  .enclosure, nav, section.streamers {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width:800px) {
+  /* medium screens intermediate */
+  .enclosure, nav, section.streamers {
+    width: 70vw;
+  }
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .enclosure, nav, section.streamers {
+    width: 100vw;
+  }
+  h1 {
+    font-size: 20px;
+  }
+
+  .select-container {
+    right: 12px;
+  }
+}
+/* Responsive styling ends */
