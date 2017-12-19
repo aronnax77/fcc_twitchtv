@@ -1,0 +1,34 @@
+/*$ground: #00ff00;*/
+
+body {
+  background-color: #0000ff;
+}
+
+.div {
+  position: relative;
+  float: left;
+  width: 70px;
+  margin: 50px 33%;
+  /*border: 2px solid yellow;*/
+}
+
+.div > select {
+  border: none;
+  background-color: #0000ff;
+  color: #ffffff;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+div.arrow-down {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  height: 0px;
+  width: 0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid white;
+}
